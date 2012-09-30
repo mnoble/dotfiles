@@ -1,0 +1,31 @@
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+
+# ZSH Theme
+ZSH_THEME="mnoble"
+
+# OH-MY-ZSH Plugins
+plugins=(git ruby brew bundler gem github osx rails3 rvm rake)
+
+# Load RVM
+[[ -s "~/.rvm/scripts/rvm" ]] && source "~/.rvm/scripts/rvm"
+
+# OH MY ZSH
+source $ZSH/oh-my-zsh.sh
+
+# PATH Additions
+export $PATH:$HOME/.rvm/bin:$HOME/bin
+
+# Add Basement Bin Scripts (they take precedence)
+for bin in /usr/local/Basement/**/*/bin; do
+  export PATH=$bin:$PATH
+done
+
+alias ls="ls -lhG"
+alias h="$(where heroku | tail -1)"
+
+# Default to 1.9 Rubinius
+export RBXOPT='-X19'
+export EDITOR='mvim'
+export CLASSPATH=/Users/mnoble/.rvm/rubies/jruby-1.6.4/lib/jruby.jar
+
