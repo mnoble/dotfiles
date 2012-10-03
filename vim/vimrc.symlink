@@ -70,3 +70,8 @@ let g:JSLintHighlightErrorLine = 0
 " % to bounce from do to end etc.
 runtime! macros/matchit.vim
 
+" Highlight class under cursor
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+  \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+  \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
